@@ -35,7 +35,8 @@
 
 <body layout:fragment="body">
 <div id="app">
-    <h1>Composition</h1>
+    <h1>Composition <a th:href="@{https://v3-docs.vuejs-korea.org/guide/introduction.html}" th:target="@{_blank}" >뷰 공식 사이트</a></h1>
+
 
     <fieldset>
         <legend>✨ref, @input, {{ }}, watchPostEffect - 뷰의 값을 텍스트로 출력, 감시 예제 </legend>
@@ -90,12 +91,12 @@
     </fieldset>
 
     <fieldset>
-        <legend>✨v-if, v-else 예제 - 조건부 랜더링(소멸)</legend>
+        <legend>✨v-if, v-else 예제 - 조건부 랜더링(소멸)[크롬 개발자 모드에서 html 변경 확인]</legend>
         <p v-if="showFlag" @click="showFlag = !showFlag">showFlag 가 true 일떄</p>
         <p class="red" v-else @click="showFlag = !showFlag">showFlag 가 false 일떄</p>
     </fieldset>
     <fieldset>
-        <legend>✨v-show 예제 - 조건부 랜더링 (display: none)</legend>
+        <legend>✨v-show 예제 - 조건부 랜더링 (display: none)[크롬 개발자 모드에서 html 변경 확인]</legend>
         <p v-show="showFlag" @click="showFlag = !showFlag">showFlag 가 true 일떄</p>
     </fieldset>
 
@@ -103,6 +104,16 @@
     <legend>✨v-html 예제 - 에디터의 결과물 같은 html 삽입 </legend>
         <div v-html="html">
         </div>
+    </fieldset>
+
+    <fieldset>
+    <legend>✨현재 cdn 방식에서 사용 못하는 기능 목록</legend>
+        <ul>
+            <li>- 뷰 라우터</li>
+            <li>- 컴포넌트</li>
+            <li>- 피니아(상태관리)</li>
+            <li>- jwt</li>
+        </ul>
     </fieldset>
 
 
@@ -118,18 +129,21 @@
 
 
     const app = createApp({
+        // html 에서 vue 파일을 import 해서 쓸때는 setup() { ... return } 이 필수
+
         setup() {
             // <script setup> 영역
-            const message = ref('메세지~~~');                    //? useState 래핑
-            const name = ref(null)                              //? useState 래핑
-            const age = ref(null)                               //? useState 래핑
-            let items = ref([]);                                //? useState 래핑
-            let items2 = reactive([]);                          //? useState 언래핑
-            let checkArr = reactive(['orange'])                 //? useState 언래핑
+            // useState 와 유사 대신에 setState 없이 하나로 사용
+            const message = ref('메세지~~~');
+            const name = ref(null);
+            const age = ref(null);
+            let items = ref([]);
+            let items2 = reactive([]);
+            let checkArr = reactive(['orange']);
 
-            let radio = ref('banana2');                           //? useState 래핑
-            let showFlag = ref(true);                           //? useState 래핑
-            let html = ref('<strong>Hello.. HTML</strong>');    //? useState 래핑
+            let radio = ref('banana2');
+            let showFlag = ref(true);
+            let html = ref('<strong>Hello.. HTML</strong>');
 
 
             //? useEffect 유사
@@ -160,13 +174,10 @@
             }
 
 
-
-
-
             //? 라이프 사이클 중 1개 - 데이터 초기화
             onMounted(async () => {
                 console.log('마운트');
-                // GET API 호출
+                // 메뉴 API 호출
                 await fnSampleMenu()
                 name.value = '홍길동';
                 age.value = 10;
@@ -192,6 +203,7 @@
                 console.log(items2)
 
             })
+
 
             return {message, userIntroduce, name, age, items, items2, checkBoxHandler, checkArr, showFlag, html, radio, radioHandler};
         },
