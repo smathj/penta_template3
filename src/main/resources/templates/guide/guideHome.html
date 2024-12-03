@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{guide/layout/guideLayout.html}"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>가이드 홈</title>
+</head>
+
+
+<th:block layout:fragment="css">
+    <!--    <link rel="stylesheet" th:href="@{/css/guide/guideHome.css}">-->
+</th:block>
+
+<th:block layout:fragment="js">
+<!--    <script th:src="@{/js/guide/guideHome.js}"></script>-->
+</th:block>
+
+<body layout:fragment="body">
+<span class="red">가이드 홈 ㅎㅇ</span>
+
+
+<!--    <th:block th:replace="~{/main/test :: test('A', null)}"></th:block>-->
+
+</body>
+</html>

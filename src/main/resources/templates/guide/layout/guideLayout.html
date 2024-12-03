@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title layout:fragment="title">Title</title>
+
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <th:block layout:fragment="css"></th:block>
+
+
+    <script th:src="@{/js/common.js}" th:inline="javascript"></script>
+    <th:block layout:fragment="js"></th:block>
+
+
+</head>
+<body>
+
+<!-- 헤더-->
+<th:block th:replace="~{guide/layout/fragments/guideHeader :: headFragment}"></th:block>
+
+
+<!-- 바디-->
+<th:block layout:fragment="body"></th:block>
+
+<!-- 푸터-->
+<th:block th:replace="~{guide/layout/fragments/guideFooter :: footerFragment}"></th:block>
+</body>
+</html>

@@ -1,15 +1,8 @@
 package com.penta.template;
 
-import com.penta.template.common.response.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.groovy.util.Maps;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.*;
 
 @Slf4j
 @Controller
@@ -20,6 +13,14 @@ public class MainController {
     public String main() {
         return "main/main";
     }
+
+    @GetMapping("/guide/home")
+    public String guideHome() {
+        return "guide/guideHome";
+    }
+
+
+/*
 
     @GetMapping("/options")
     public String options() {
@@ -90,6 +91,7 @@ public class MainController {
         ApiResponse<?> response = new ApiResponse<>();
         return response;
     }
+*/
 
 
 }

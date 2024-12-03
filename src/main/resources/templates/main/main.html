@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/layout.html}"
+      layout:decorate="~{guide/layout/guideLayout.html}"
       xmlns:th="http://www.thymeleaf.org"
 >
 
@@ -27,13 +27,13 @@
 <body layout:fragment="body">
 <div id="app">
     <h1>Main</h1>
-<!--    <th:block th:replace="~{/main/test :: test('A', 'B')}"></th:block>-->
+    <div><a href="/guide/home">가이드홈</a></div>
+    <th:block th:replace="~{/main/test :: test('A', 'B')}"></th:block>
+
 <!--    <th:block th:replace="~{/main/test :: test('A', null)}"></th:block>-->
 
 
 </div>
 
-<script>
-</script>
 </body>
 </html>

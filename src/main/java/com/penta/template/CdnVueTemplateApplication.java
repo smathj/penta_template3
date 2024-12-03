@@ -17,3 +17,5 @@ public class CdnVueTemplateApplication {
 
 
 }
+
+// 초록색 버튼이 안보이면 jdk 17 를 설정해야함!!! 일캐..
